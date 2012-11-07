@@ -9,7 +9,7 @@ package cmribxvi;
  * @author jaiquipa
  */
 public class CMRIBXVI {
-
+    
     /**
      * @param args the command line arguments
      */
