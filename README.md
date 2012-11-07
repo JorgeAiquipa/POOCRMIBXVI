@@ -1,4 +1,8 @@
-POOCRMIBXVI
-===========
+Nombre de los integrantes:
 
-CRM para el Instituto Benedicto XVI
+Jorge Aiquipa
+Carlos Benavides
+Lisbet Monteza
+Carlos Caballero
+Silvina Becerra
+
