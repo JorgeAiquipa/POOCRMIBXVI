@@ -1,20 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package poocrmibxvi;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class VentaManager {
-    private ArrayList<Venta> ventas;
-    private ArrayList<Venta> listar;
+public class CompraManager {
+    private ArrayList<Compra> compras;
+    private ArrayList<Compra> listar;
     
-    public VentaManager(){
-        ventas = new ArrayList<Venta>();
-        listar = new ArrayList<Venta>();
+    public CompraManager(){
+        compras = new ArrayList<Compra>();
+        listar = new ArrayList<Compra>();
     }
     
     private void validarDatos(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_ven, String fec_pago) throws BusinessException {
@@ -52,32 +48,32 @@ public class VentaManager {
         }
     }
     
-    public Venta buscar(String tipo, String numero) {
-        for(Venta venta : ventas)
-            if (venta.getTipo().equals(tipo) && venta.getNumero().equals(numero))
-               return venta;
+    public Compra buscar(String tipo, String numero) {
+        for(Compra compra : compras)
+            if (compra.getTipo().equals(tipo) && compra.getNumero().equals(numero))
+               return compra;
         return null;
     } 
     
-    public void altaVentas(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones) throws BusinessException {
+    public void altaCompras(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones) throws BusinessException {
         validarDatos(tipo, concepto, numero, fec_emision, empresa, subtotal, igv, total, moneda, fec_venc, fec_pago);
         validaDuplicidad(tipo, numero);
-        Venta venta = new Venta(tipo, concepto, numero, fec_emision, empresa, subtotal, igv, total, moneda, fec_venc, fec_pago, estado, observaciones);
-        ventas.add(venta);
+        Compra compra = new Compra(tipo, concepto, numero, fec_emision, empresa, subtotal, igv, total, moneda, fec_venc, fec_pago, estado, observaciones);
+        compras.add(compra);
     }
     
     public void filtroVentas(String concepto, String numero, String fecha_emision, String empresa, String fec_venc, String fec_pago, String estado){    
         // Busqueda secuencial por strings
-        for(Venta venta : ventas){
-            if(venta.getConcepto().compareTo(concepto) == 0)
-                 listar.add(venta);
+        for(Compra compra : compras){
+            if(compra.getConcepto().compareTo(concepto) == 0)
+                 listar.add(compra);
         }
         //ordenamos la lista por fecha de vencimiento
         Collections.sort(listar, new Comparator() {    
             public int compare(Object o1, Object o2) {  
-                Venta v1 = (Venta) o1;
-                Venta v2 = (Venta) o2;
-                return v1.getFec_venc().compareToIgnoreCase(v2.getFec_venc());  
+                Compra c1 = (Compra) o1;
+                Compra c2 = (Compra) o2;
+                return c1.getFec_venc().compareToIgnoreCase(c2.getFec_venc());  
             }  
         });      
     }

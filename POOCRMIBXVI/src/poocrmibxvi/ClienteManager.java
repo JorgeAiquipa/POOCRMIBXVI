@@ -42,7 +42,7 @@ public class ClienteManager {
    
    public void filtroClientes(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono, String celular, String fechaContacto) 
     {    
-       // Busqueda secuencial por strings  falta comparar mas campos.
+        // Busqueda secuencial por strings  falta comparar mas campos.
         for(Cliente cliente : clientes)        
         {   if(cliente.getDni().compareTo(dni) == 0)
                  listar.add(cliente);
