@@ -10,5 +10,5 @@ package poocrmibxvi;
  * @author praimus
  */
 public class Compra {
-    
+ private String fec_venc;   
 }
