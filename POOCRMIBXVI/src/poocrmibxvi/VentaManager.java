@@ -4,10 +4,6 @@
  */
 package poocrmibxvi;
 
-/**
- *
- * @author praimus
- */
 public class VentaManager {
     private String concepto;
     private String tipo;
