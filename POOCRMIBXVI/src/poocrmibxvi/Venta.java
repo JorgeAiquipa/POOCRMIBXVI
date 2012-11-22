@@ -4,7 +4,7 @@ public class Venta {
     private String concepto;
     private String tipo;
     private String numero;
-    private String empresa;
+    private String dni_cliente;
     private String fec_emision;
     private String fec_venc;
     private String fec_pago;
@@ -15,11 +15,11 @@ public class Venta {
     private String moneda;
     private String observaciones;
     
-    public Venta(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones){
+    public Venta(String tipo, String concepto, String numero, String fec_emision, String dni_cliente, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones){
         this.tipo = tipo;
         this.concepto = concepto;
         this.numero = numero;
-        this.empresa = empresa;
+        this.dni_cliente = dni_cliente;
         this.fec_emision = fec_emision;
         this.subtotal = subtotal;
         this.igv = igv;
@@ -56,11 +56,11 @@ public class Venta {
     }
 
     public String getEmpresa() {
-        return empresa;
+        return dni_cliente;
     }
 
     public void setEmpresa(String empresa) {
-        this.empresa = empresa;
+        this.dni_cliente = dni_cliente;
     }
 
     public String getFec_emision() {

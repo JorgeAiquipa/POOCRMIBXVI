@@ -17,7 +17,7 @@ public class VentaManager {
         listar = new ArrayList<Venta>();
     }
     
-    private void validarDatos(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_ven, String fec_pago) throws BusinessException {
+    private void validarDatos(String tipo, String concepto, String numero, String fec_emision, String dni_cliente, double subtotal, double igv, double total, String moneda, String fec_ven, String fec_pago) throws BusinessException {
         String mensaje = "";
         if(tipo == null || tipo.isEmpty())
             mensaje += "Tipo no puede ser nulo o vacio\n";
@@ -27,7 +27,7 @@ public class VentaManager {
             mensaje += "Numero no puede ser nulo o vacio\n";
         if(fec_emision == null || fec_emision.isEmpty())
             mensaje += "Fecha de emision no puede ser nula o vacia\n";
-        if(empresa == null || empresa.isEmpty())
+        if(dni_cliente == null || dni_cliente.isEmpty())
             mensaje += "Numero no puede ser nulo o vacio\n";
         if(subtotal == 0)
             mensaje += "Numero no puede ser cero\n";
@@ -59,14 +59,14 @@ public class VentaManager {
         return null;
     } 
     
-    public void altaVentas(String tipo, String concepto, String numero, String fec_emision, String empresa, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones) throws BusinessException {
-        validarDatos(tipo, concepto, numero, fec_emision, empresa, subtotal, igv, total, moneda, fec_venc, fec_pago);
+    public void altaVentas(String tipo, String concepto, String numero, String fec_emision, String dni_cliente, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones) throws BusinessException {
+        validarDatos(tipo, concepto, numero, fec_emision, dni_cliente, subtotal, igv, total, moneda, fec_venc, fec_pago);
         validaDuplicidad(tipo, numero);
-        Venta venta = new Venta(tipo, concepto, numero, fec_emision, empresa, subtotal, igv, total, moneda, fec_venc, fec_pago, estado, observaciones);
+        Venta venta = new Venta(tipo, concepto, numero, fec_emision, dni_cliente, subtotal, igv, total, moneda, fec_venc, fec_pago, estado, observaciones);
         ventas.add(venta);
     }
     
-    public void filtroVentas(String concepto, String numero, String fecha_emision, String empresa, String fec_venc, String fec_pago, String estado){    
+    public void filtroVentas(String concepto, String numero, String fecha_emision, String dni_cliente, String fec_venc, String fec_pago, String estado){    
         // Busqueda secuencial por strings
         for(Venta venta : ventas){
             if(venta.getConcepto().compareTo(concepto) == 0)
