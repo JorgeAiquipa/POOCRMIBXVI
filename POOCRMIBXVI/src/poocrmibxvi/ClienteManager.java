@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 /**
- *
- * @author jaiquipa
+  * @author jaiquipa
  */
 public class ClienteManager {   
    private ArrayList<Cliente> clientes;   
@@ -35,7 +34,7 @@ public class ClienteManager {
 
   public void altaClientes(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono, String celular, String fechaContacto)   
       throws BusinessException {
-      validacion(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto); 
+      validacion(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);       
       Cliente nuevoRegistro = new Cliente(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);
       clientes.add(nuevoRegistro);        
     } 

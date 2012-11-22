@@ -10,22 +10,23 @@ package poocrmibxvi;
  */
 public class Prospecto {
 
-        private String dni;
+    private String dni;
     private String apellidoPaterno;
     private String apellidoMaterno;
-    private String nombre;
+    private String nombres;
     private String email;
     private String telefono;
+    private String fec_contac;
     
     
-    public Prospecto(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono) {
+    public Prospecto(String dni, String apellidoPaterno, String apellidoMaterno, String nombres, String email, String telefono, String fec_contac) {
         this.dni = dni;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
-        this.nombre = nombre;
+        this.nombres = nombres;
         this.email = email;
         this.telefono = telefono;        
-    
+        this.fec_contac = fec_contac;    
     }
     
     /**
@@ -73,15 +74,15 @@ public class Prospecto {
     /**
      * @return the nombre
      */
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
     /**
      * @param nombre the nombre to set
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     /**
@@ -103,6 +104,20 @@ public class Prospecto {
      */
     public String getTelefono() {
         return telefono;
+    }
+
+    /**
+     * @return the fec_contac
+     */
+    public String getFec_contac() {
+        return fec_contac;
+    }
+
+    /**
+     * @param fec_contac the fec_contac to set
+     */
+    public void setFec_contac(String fec_contac) {
+        this.fec_contac = fec_contac;
     }
 
 }
