@@ -55,4 +55,40 @@ public class ProspectoManager {
         return null;
     } 
     
+    public void filtroProspectos(String dni, String apellidoPaterno, String apellidoMaterno, String nombres, String email, String telefono, String celular, String fechaContacto) throws BusinessException
+    {    
+        // Busqueda secuencial por strings  falta comparar mas campos.
+        for(Prospecto prospecto : prospectos)        
+        {   if(prospecto.getDni().compareTo(dni) == 0 && prospecto.getApellidoPaterno().compareTo(apellidoPaterno) == 0 && prospecto.getApellidoPaterno().compareTo(apellidoMaterno) == 0  && prospecto.getNombres().compareTo(nombres) == 0 )
+                 listar.add(prospecto);
+           
+        }                               
+        if(getCantidadSegunFiltro()>0)
+        {
+         //ordenamos la lista por fecha de Contacto        
+        Collections.sort(listar, new Comparator() {    
+            public int compare(Object o1, Object o2) {  
+                Prospecto c1 = (Prospecto) o1;  
+                Prospecto c2 = (Prospecto) o2;  
+                return c1.getFec_contac().compareToIgnoreCase(c2.getFec_contac());  
+            }  
+        });      
+        }
+        else 
+        {
+          String mensaje = "No se encontraron registros para los filtros ingresados " ;
+          throw new BusinessException(mensaje);        
+         }
+        
+     }
+   
+    public int getCantidadProspectos() {        
+        return prospectos.size();
+    }
+    
+    public int getCantidadSegunFiltro() {        
+        return listar.size();
+    }    
+    
+        
 }
