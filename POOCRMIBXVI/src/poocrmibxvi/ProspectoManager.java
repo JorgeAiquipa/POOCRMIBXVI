@@ -59,7 +59,7 @@ public class ProspectoManager {
     {    
         // Busqueda secuencial por strings  falta comparar mas campos.
         for(Prospecto prospecto : prospectos)        
-        {   if(prospecto.getDni().compareTo(dni) == 0 && prospecto.getApellidoPaterno().compareTo(apellidoPaterno) == 0 && prospecto.getApellidoPaterno().compareTo(apellidoMaterno) == 0  && prospecto.getNombres().compareTo(nombres) == 0 )
+        {   if(prospecto.getDni().compareTo(dni) == 0  || prospecto.getApellidoPaterno().compareTo(apellidoPaterno) == 0 || prospecto.getApellidoPaterno().compareTo(apellidoMaterno) == 0  || prospecto.getNombres().compareTo(nombres) == 0 )
                  listar.add(prospecto);
            
         }                               
@@ -90,5 +90,9 @@ public class ProspectoManager {
         return listar.size();
     }    
     
-        
+    public Boolean eliminarProspecto(Prospecto prospectobsq)
+    {
+       return  prospectos.remove(prospectobsq);
+    }
+       
 }
