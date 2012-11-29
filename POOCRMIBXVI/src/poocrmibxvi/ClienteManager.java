@@ -55,4 +55,16 @@ public class ClienteManager {
             }  
         });      
      }
+   
+       public int getCantidadClientes() {        
+        return clientes.size();
+    }
+       
+    public Cliente buscar(String dni) {
+        for(Cliente cliente : clientes)
+            if (cliente.getDni().equals(dni))
+               return cliente;
+        return null;
+    } 
+           
 }
