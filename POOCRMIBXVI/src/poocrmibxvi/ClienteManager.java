@@ -74,9 +74,34 @@ public class ClienteManager {
         return null;
     } 
     
-     public Boolean eliminarCliente(Cliente clientebsq)
+    public Boolean eliminarCliente(Cliente clientebsq)
     {
-       return clientes.remove(clientebsq);
+       VentaManager admventa = new VentaManager();
+       Venta venta = admventa.buscarVentaDni(clientebsq.getDni());
+       if( venta != null)
+       {
+           return clientes.remove(clientebsq);    
+       }
+       else
+           return false;
     }
            
+    public void convertirAProspecto(Cliente cliente) throws BusinessException
+    {
+        ProspectoManager AdmProsp = new ProspectoManager();
+        if (eliminarCliente(cliente))
+        {
+           AdmProsp.altaProspectos(cliente.getDni(),
+                                   cliente.getApellidoPaterno(),
+                                   cliente.getApellidoMaterno(),
+                                   cliente.getNombres(),
+                                   cliente.getEmail(),
+                                   cliente.getTelefono(),
+                                   cliente.getFec_contac()); 
+        }
+        else
+            throw new BusinessException(" No se puede convertir el Cliente a Prospecto");
+                
+    }
+    
 }

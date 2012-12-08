@@ -56,11 +56,11 @@ public class Venta {
     }
 
     public String getEmpresa() {
-        return dni_cliente;
+        return getDni_cliente();
     }
 
     public void setEmpresa(String empresa) {
-        this.dni_cliente = dni_cliente;
+        this.setDni_cliente(getDni_cliente());
     }
 
     public String getFec_emision() {
@@ -133,5 +133,19 @@ public class Venta {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    /**
+     * @return the dni_cliente
+     */
+    public String getDni_cliente() {
+        return dni_cliente;
+    }
+
+    /**
+     * @param dni_cliente the dni_cliente to set
+     */
+    public void setDni_cliente(String dni_cliente) {
+        this.dni_cliente = dni_cliente;
     }
 }

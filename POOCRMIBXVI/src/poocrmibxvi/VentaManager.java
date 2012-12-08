@@ -59,6 +59,14 @@ public class VentaManager {
         return null;
     } 
     
+    public Venta buscarVentaDni(String dni){
+        for(Venta venta : ventas)
+            if ( venta.getDni_cliente().equals(dni))
+               return venta;
+        return null;
+    }
+            
+    
     public void altaVentas(String tipo, String concepto, String numero, String fec_emision, String dni_cliente, double subtotal, double igv, double total, String moneda, String fec_venc, String fec_pago, String estado, String observaciones) throws BusinessException {
         validarDatos(tipo, concepto, numero, fec_emision, dni_cliente, subtotal, igv, total, moneda, fec_venc, fec_pago);
         validaDuplicidad(tipo, numero);
