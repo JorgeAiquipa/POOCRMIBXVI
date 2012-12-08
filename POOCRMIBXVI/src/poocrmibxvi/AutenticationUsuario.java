@@ -4,18 +4,20 @@
  */
 package poocrmibxvi;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jaiquipa
  */
 public class AutenticationUsuario {    
     
-    public void Login(String IdUsuario, String contrasenha) throws BusinessException
+    public void Login(String IdUsuario, String contrasenha, ArrayList <Usuario> User) throws BusinessException
     {
         String mensaje = "";
         validarDatos(IdUsuario,contrasenha);
         UsuarioManager admusu = new UsuarioManager();           
-        Usuario user =  admusu.buscarUsuario(IdUsuario);
+        Usuario user =  admusu.buscarUsuario(User,IdUsuario);
         if (user == null){           
             mensaje += "El Usuario " + IdUsuario + " no existe ";
             throw new BusinessException(mensaje);

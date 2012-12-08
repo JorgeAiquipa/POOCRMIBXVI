@@ -59,8 +59,8 @@ public class UsuarioManager {
         return null;
     } 
     
-   public Usuario buscarUsuario(String IdUsuario) {
-        for(Usuario usuario : usuarios)
+   public Usuario buscarUsuario(ArrayList<Usuario> userList, String IdUsuario) {
+        for(Usuario usuario : userList)
             if (usuario.getUsuario().equals(IdUsuario))
                return usuario;
         return null;
