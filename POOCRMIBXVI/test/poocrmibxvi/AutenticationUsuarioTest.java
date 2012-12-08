@@ -60,8 +60,8 @@ public class AutenticationUsuarioTest {
         assertEquals(cantidadUsuariosEsperada, cantidadUsuariosRetornada);       
     }
     
-    @Test
-    public void usuarioValidarPwd() {
+    @Test (expected=BusinessException.class)
+    public void usuarioValidarLogin() throws BusinessException {
         String[] dnis = {"23272090", "23259395"};
         String[] apellidosPaterno = {"Contreras", "Bravo"};
         String[] apellidosMaterno = {"Chávez", "Mejía"};
@@ -93,10 +93,10 @@ public class AutenticationUsuarioTest {
             Logger.getLogger(AutenticationUsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
         }                    
         // Assert
-        int cantidadUsuariosEsperada = dnis.length;
-        int cantidadUsuariosRetornada = admin.getCantidadUsuarios();
-        assertEquals(cantidadUsuariosEsperada, cantidadUsuariosRetornada);
-        String usuarioLogeo = "Pepito";
+        String usuarioLogeo = "jaiquipa";
+        String pwd = "123874";
+        AutenticationUsuario usuarioLogin = new AutenticationUsuario();
+        usuarioLogin.Login(usuarioLogeo, pwd, admin.getUsuarios());
     }
 
 }

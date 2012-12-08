@@ -68,5 +68,8 @@ public class UsuarioManager {
      public int getCantidadUsuarios() {        
         return usuarios.size();
     }
-              
+    
+     public ArrayList<Usuario> getUsuarios(){
+         return usuarios;
+     }
 }
