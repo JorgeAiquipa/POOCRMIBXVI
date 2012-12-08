@@ -43,7 +43,8 @@ public class ProspectoManager {
     
    public void altaProspectos(String dni, String apellidoPaterno, String apellidoMaterno, String nombres, String email, String telefono, String fec_contac)   
       throws BusinessException {
-      validacion(apellidoPaterno,nombres,email); 
+      validacion(apellidoPaterno,nombres,email);
+      siExisteCliente(dni);
       Prospecto nuevoRegistro = new Prospecto(dni,apellidoPaterno,apellidoMaterno,nombres,email,telefono,fec_contac);
       prospectos.add(nuevoRegistro);        
     } 
@@ -81,6 +82,13 @@ public class ProspectoManager {
          }
         
      }
+    
+    public void siExisteCliente(String dni) throws BusinessException{
+        ClienteManager cm = new ClienteManager();
+        Cliente c = cm.buscar(dni);
+        if(c == null)
+            throw new BusinessException("El cliente ya existe");
+    }
    
     public int getCantidadProspectos() {        
         return prospectos.size();
