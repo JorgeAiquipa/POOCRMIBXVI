@@ -35,5 +35,8 @@ public class RolManager {
         Rol rol = new Rol(nombre, descripcion, permisos);
         roles.add(rol);
     }    
+    
+    
+    
 }
 

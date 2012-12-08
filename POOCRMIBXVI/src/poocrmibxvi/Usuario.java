@@ -17,14 +17,14 @@ public class Usuario {
     private String email;
     private String fechaIngreso;
     private String cargo;
-    private String rol;
+    //private String rol;
     private String contrasenha;
     private String creadoPor;
     private String creadoFecha;
     private String actualizadoPor;
     private String actualizadoFecha;
 
-    public Usuario(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String rol, String contrasenha, String creadoPor, String creadoFecha, String actualizadoPor, String actualizadoFecha) {
+    public Usuario(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String contrasenha, String creadoPor, String creadoFecha, String actualizadoPor, String actualizadoFecha) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -33,7 +33,7 @@ public class Usuario {
         this.email = email;
         this.fechaIngreso = fechaIngreso;
         this.cargo = cargo;
-        this.rol = rol;
+        //this.rol = rol;
         this.contrasenha = contrasenha;
         this.creadoPor = creadoPor;
         this.creadoFecha = creadoFecha;
@@ -151,20 +151,6 @@ public class Usuario {
      */
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    /**
-     * @return the rol
-     */
-    public String getRol() {
-        return rol;
-    }
-
-    /**
-     * @param rol the rol to set
-     */
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 
     /**

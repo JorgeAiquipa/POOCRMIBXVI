@@ -54,7 +54,14 @@ public class UsuarioManager {
         return null;
     } 
     
-    
+   public Usuario buscarUsuario(String IdUsuario) {
+        for(Usuario usuario : usuarios)
+            if (usuario.getUsuario().equals(IdUsuario))
+               return usuario;
+        return null;
+    } 
+           
+           
      
      
     

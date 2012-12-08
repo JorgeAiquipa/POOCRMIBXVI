@@ -10,4 +10,22 @@ package poocrmibxvi;
  */
 public class AutenticationUsuario {
     
+    
+    
+    public void Login(String IdUsuario, String contrasenha) throws BusinessException
+    {
+        String mensaje = "";
+        UsuarioManager admusu = new UsuarioManager();           
+        Usuario user =  admusu.buscarUsuario(IdUsuario);
+        if (user == null){           
+            mensaje += "El Usurio " + IdUsuario + " no existe";
+            throw new BusinessException(mensaje);
+        }
+        else
+            if (contrasenha.equalsIgnoreCase(contrasenha))
+            { 
+               mensaje += "Contraseña es incorrecto";
+               throw new BusinessException(mensaje);
+            }
+    }
 }
