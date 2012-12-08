@@ -8,9 +8,7 @@ package poocrmibxvi;
  *
  * @author jaiquipa
  */
-public class AutenticationUsuario {
-    
-    
+public class AutenticationUsuario {    
     
     public void Login(String IdUsuario, String contrasenha) throws BusinessException
     {
@@ -27,5 +25,15 @@ public class AutenticationUsuario {
                mensaje += "Contraseña es incorrecto";
                throw new BusinessException(mensaje);
             }
+    }
+    
+    private void validarDatos(String usuario, String contrasenha) throws BusinessException {
+        String mensaje = "";
+        if(usuario == null || usuario.isEmpty())
+            mensaje += "El usuario no puede ser nulo o vacio\n";
+        if(contrasenha == null || contrasenha.isEmpty())
+            mensaje += "La contrasena no puede ser nula o vacia\n";
+        if (!mensaje.isEmpty())
+            throw new BusinessException(mensaje);
     }
 }
