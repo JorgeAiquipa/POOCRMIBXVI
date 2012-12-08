@@ -35,7 +35,7 @@ public class ClienteManager {
   public void altaClientes(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono, String celular, String fechaContacto)   
       throws BusinessException {
       validacion(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);       
-      Cliente nuevoRegistro = new Cliente(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);
+      Cliente nuevoRegistro = new Cliente(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,fechaContacto);
       clientes.add(nuevoRegistro);        
     } 
    
