@@ -66,5 +66,10 @@ public class ClienteManager {
                return cliente;
         return null;
     } 
+    
+     public Boolean eliminarCliente(Cliente clientebsq)
+    {
+       return clientes.remove(clientebsq);
+    }
            
 }
