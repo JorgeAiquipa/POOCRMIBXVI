@@ -43,7 +43,7 @@ public class ClienteManager {
     {    
         // Busqueda secuencial por strings  falta comparar mas campos.
         for(Cliente cliente : clientes)        
-        {   if(cliente.getDni().compareTo(dni) == 0)
+        {   if(cliente.getDni().compareTo(dni) == 0  || cliente.getApellidoPaterno().compareTo(apellidoPaterno) == 0 || cliente.getApellidoPaterno().compareTo(apellidoMaterno) == 0  || cliente.getNombres().compareTo(nombre) == 0 )
                  listar.add(cliente);
         }                               
          //ordenamos la lista por fecha de vencimiento
@@ -51,7 +51,7 @@ public class ClienteManager {
             public int compare(Object o1, Object o2) {  
                 Cliente c1 = (Cliente) o1;  
                 Cliente c2 = (Cliente) o2;  
-                return c1.getDni().compareToIgnoreCase(c2.getDni());  
+                return c1.getFec_contac().compareToIgnoreCase(c2.getFec_contac());  
             }  
         });      
      }
