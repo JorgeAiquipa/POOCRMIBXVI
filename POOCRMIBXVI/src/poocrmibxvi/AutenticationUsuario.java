@@ -41,4 +41,8 @@ public class AutenticationUsuario {
         if (!mensaje.isEmpty())
             throw new BusinessException(mensaje);
     }
+    
+    public int getCargaUsuario(){
+        return cargaUsuario.get(0);
+    }
 }
