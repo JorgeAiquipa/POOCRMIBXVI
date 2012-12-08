@@ -22,7 +22,6 @@ public class AutenticationUsuarioTest {
     public AutenticationUsuarioTest() {
     }
     
-
     @Test
     public void usuarioDebeCrearse() {
         String[] dnis = {"23272090", "23259395"};
@@ -58,8 +57,7 @@ public class AutenticationUsuarioTest {
         // Assert
         int cantidadUsuariosEsperada = dnis.length;
         int cantidadUsuariosRetornada = admin.getCantidadUsuarios();
-        assertEquals(cantidadUsuariosEsperada, cantidadUsuariosRetornada);
-       
+        assertEquals(cantidadUsuariosEsperada, cantidadUsuariosRetornada);       
     }
 
 }
