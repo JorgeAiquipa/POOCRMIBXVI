@@ -60,6 +60,13 @@ public class ClienteManager {
         return clientes.size();
     }
        
+    private void validaDuplicidad(String numero) throws BusinessException {
+        if (buscar( numero) != null){           
+            String mensaje = "Ya esta registrado  : " + numero;
+            throw new BusinessException(mensaje);
+        }
+    }
+       
     public Cliente buscar(String dni) {
         for(Cliente cliente : clientes)
             if (cliente.getDni().equals(dni))
