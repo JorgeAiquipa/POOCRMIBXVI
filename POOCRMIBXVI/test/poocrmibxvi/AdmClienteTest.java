@@ -35,7 +35,7 @@ public class AdmClienteTest {
         // Act
         int i;
         for(i = 0; i<dnis.length; i++)
-            try {
+        try {
             admin.altaClientes(dnis[i], 
                             apellidosPaterno[i],
                             apellidosMaterno[i],
