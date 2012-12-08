@@ -34,9 +34,13 @@ public class ClienteManager {
 
   public void altaClientes(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono, String celular, String fechaContacto)   
       throws BusinessException {
-      validacion(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);       
-      Cliente nuevoRegistro = new Cliente(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,fechaContacto);
-      clientes.add(nuevoRegistro);        
+      AutenticationUsuario autentica = new AutenticationUsuario();
+      int usuAutentica = autentica.getCargaUsuario();
+      if(usuAutentica == 1){
+        validacion(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,celular,fechaContacto);       
+        Cliente nuevoRegistro = new Cliente(dni,apellidoPaterno,apellidoMaterno,nombre,email,telefono,fechaContacto);
+        clientes.add(nuevoRegistro);  
+      }
     } 
    
    public void filtroClientes(String dni, String apellidoPaterno, String apellidoMaterno, String nombre, String email, String telefono, String celular, String fechaContacto) 
@@ -76,32 +80,41 @@ public class ClienteManager {
     
     public Boolean eliminarCliente(Cliente clientebsq)
     {
-       VentaManager admventa = new VentaManager();
-       Venta venta = admventa.buscarVentaDni(clientebsq.getDni());
-       if( venta != null)
-       {
-           return clientes.remove(clientebsq);    
-       }
-       else
+       AutenticationUsuario autentica = new AutenticationUsuario();
+       int usuAutentica = autentica.getCargaUsuario();
+       if(usuAutentica == 1){
+            VentaManager admventa = new VentaManager();
+            Venta venta = admventa.buscarVentaDni(clientebsq.getDni());
+            if( venta != null)
+            {
+                return clientes.remove(clientebsq);    
+            }
+            else
+                return false;
+       } else {
            return false;
+       }
     }
            
     public void convertirAProspecto(Cliente cliente) throws BusinessException
     {
-        ProspectoManager AdmProsp = new ProspectoManager();
-        if (eliminarCliente(cliente))
-        {
-           AdmProsp.altaProspectos(cliente.getDni(),
-                                   cliente.getApellidoPaterno(),
-                                   cliente.getApellidoMaterno(),
-                                   cliente.getNombres(),
-                                   cliente.getEmail(),
-                                   cliente.getTelefono(),
-                                   cliente.getFec_contac()); 
-        }
-        else
-            throw new BusinessException(" No se puede convertir el Cliente a Prospecto");
-                
+        AutenticationUsuario autentica = new AutenticationUsuario();
+        int usuAutentica = autentica.getCargaUsuario();
+        if(usuAutentica == 1){
+            ProspectoManager AdmProsp = new ProspectoManager();
+            if (eliminarCliente(cliente))
+            {
+               AdmProsp.altaProspectos(cliente.getDni(),
+                                       cliente.getApellidoPaterno(),
+                                       cliente.getApellidoMaterno(),
+                                       cliente.getNombres(),
+                                       cliente.getEmail(),
+                                       cliente.getTelefono(),
+                                       cliente.getFec_contac()); 
+            }
+            else
+                throw new BusinessException(" No se puede convertir el Cliente a Prospecto");
+        }        
     }
     
 }
