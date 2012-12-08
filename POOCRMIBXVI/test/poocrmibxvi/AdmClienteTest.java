@@ -48,9 +48,9 @@ public class AdmClienteTest {
             Logger.getLogger(AdmClienteTest.class.getName()).log(Level.SEVERE, null, ex);
         }                    
         // Assert
-        int cantidadProspectosEsperada = dnis.length;
-        int cantidadProspectosRetornada = admin.getCantidadClientes();
-        assertEquals(cantidadProspectosEsperada, cantidadProspectosRetornada);
+        int cantidadClientesEsperada = dnis.length;
+        int cantidadClientesRetornada = admin.getCantidadClientes();
+        assertEquals(cantidadClientesEsperada, cantidadClientesRetornada);
         for (i=0; i<dnis.length; i++){
             Cliente clienteBuscado = admin.buscar(dnis[i]); 
             assertNotNull(clienteBuscado);
