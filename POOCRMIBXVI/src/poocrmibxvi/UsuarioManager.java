@@ -20,7 +20,12 @@ public class UsuarioManager {
         this.listar = new ArrayList<Usuario>();
     }
    
-   public void validacion(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String rol, String contrasenha ) throws BusinessException
+   public void altaUsuario(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String contrasenha, String creadoPor, String creadoFecha) throws BusinessException {
+      validacion(dni, nombre, apellidoPaterno,  apellidoMaterno, usuario, email, fechaIngreso,  cargo,  contrasenha);       
+      Usuario nuevoRegistro = new Usuario(dni, nombre, apellidoPaterno, apellidoMaterno, usuario, email, fechaIngreso, cargo, contrasenha, creadoPor, creadoFecha);
+      usuarios.add(nuevoRegistro);        
+   }
+   public void validacion(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String contrasenha ) throws BusinessException
    {  
         String mensaje = "";
         if (dni==null || dni.isEmpty())
@@ -39,8 +44,8 @@ public class UsuarioManager {
             mensaje += "\nLa Fecha de ingreso no puede ser vacio o nulo";
         if (cargo==null || cargo.isEmpty())
             mensaje += "\nEl cargo no puede ser vacio o nulo"; 
-        if (rol==null || rol.isEmpty())
-            mensaje += "\nEl rol no puede ser vacio o nulo";         
+        //if (rol==null || rol.isEmpty())
+        //    mensaje += "\nEl rol no puede ser vacio o nulo";         
         if (contrasenha==null || contrasenha.isEmpty())
             mensaje += "\nEl contraseña no puede ser vacio o nulo";                         
         if (! mensaje.isEmpty())
@@ -60,12 +65,8 @@ public class UsuarioManager {
                return usuario;
         return null;
     } 
-           
-           
-     
-     
-    
-    
-    
-   
+     public int getCantidadUsuarios() {        
+        return usuarios.size();
+    }
+              
 }

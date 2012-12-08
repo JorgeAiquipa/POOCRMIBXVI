@@ -24,7 +24,7 @@ public class Usuario {
     private String actualizadoPor;
     private String actualizadoFecha;
 
-    public Usuario(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String contrasenha, String creadoPor, String creadoFecha, String actualizadoPor, String actualizadoFecha) {
+    public Usuario(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String usuario, String email, String fechaIngreso, String cargo, String contrasenha, String creadoPor, String creadoFecha) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -37,8 +37,8 @@ public class Usuario {
         this.contrasenha = contrasenha;
         this.creadoPor = creadoPor;
         this.creadoFecha = creadoFecha;
-        this.actualizadoPor = actualizadoPor;
-        this.actualizadoFecha = actualizadoFecha;
+        this.actualizadoPor = "";
+        this.actualizadoFecha = "";
     }
 
     /**
