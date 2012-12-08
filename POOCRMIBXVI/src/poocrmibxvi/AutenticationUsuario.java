@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author jaiquipa
  */
 public class AutenticationUsuario {    
+    private ArrayList<Integer> cargaUsuario;
     
     public void Login(String IdUsuario, String contrasenha, ArrayList <Usuario> User) throws BusinessException
     {
@@ -26,6 +27,8 @@ public class AutenticationUsuario {
             if (contrasenha.equalsIgnoreCase(contrasenha))
             {  mensaje += "Contraseña es incorrecto";
                throw new BusinessException(mensaje);
+            } else {
+                cargaUsuario.add(1);
             }
     }
     
@@ -37,5 +40,9 @@ public class AutenticationUsuario {
             mensaje += "La contrasena no puede ser nula o vacia\n";
         if (!mensaje.isEmpty())
             throw new BusinessException(mensaje);
+    }
+    
+    public int getCargaUsuario(){
+        return cargaUsuario.get(0);
     }
 }

@@ -43,10 +43,14 @@ public class ProspectoManager {
     
    public void altaProspectos(String dni, String apellidoPaterno, String apellidoMaterno, String nombres, String email, String telefono, String fec_contac)   
       throws BusinessException {
-      validacion(apellidoPaterno,nombres,email);
-      siExisteCliente(dni);
-      Prospecto nuevoRegistro = new Prospecto(dni,apellidoPaterno,apellidoMaterno,nombres,email,telefono,fec_contac);
-      prospectos.add(nuevoRegistro);        
+      AutenticationUsuario autentica = new AutenticationUsuario();
+      int usuAutentica = autentica.getCargaUsuario();
+      if(usuAutentica == 1){
+        validacion(apellidoPaterno,nombres,email);
+        siExisteCliente(dni);
+        Prospecto nuevoRegistro = new Prospecto(dni,apellidoPaterno,apellidoMaterno,nombres,email,telefono,fec_contac);
+        prospectos.add(nuevoRegistro);
+      }
     } 
    
    public Prospecto buscar(String numero) {
@@ -100,7 +104,13 @@ public class ProspectoManager {
     
     public Boolean eliminarProspecto(Prospecto prospectobsq)
     {
-       return  prospectos.remove(prospectobsq);
+       AutenticationUsuario autentica = new AutenticationUsuario();
+        int usuAutentica = autentica.getCargaUsuario();
+        if(usuAutentica == 1){
+            return  prospectos.remove(prospectobsq);
+        } else {
+            return false;
+        }
     }
        
 }
